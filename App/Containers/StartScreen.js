@@ -4,7 +4,9 @@ import MapView, { Marker } from 'react-native-maps'
 import Icon from 'react-native-vector-icons/FontAwesome5'
 
 import Layout from '../Components/Layout'
-import DevscreensButton from '../../ignite/DevScreens/DevscreensButton.js'
+import Card from '../Components/Card'
+
+import markers from '../Fixtures/markers'
 
 const styles = StyleSheet.create({
   headerWrapper: {
@@ -21,8 +23,18 @@ const styles = StyleSheet.create({
   },
   map: {
     display: 'flex',
-    height: '85%',
+    height: '100%',
     width: '100%'
+  },
+  overlay: {
+    position: 'absolute',
+    width: '100%',
+    height: 300,
+    bottom: 0,
+    backgroundColor: '#fff',
+    padding: 16,
+    display: 'flex',
+    flexDirection: 'row'
   }
 })
 
@@ -31,13 +43,7 @@ export default class StartScreen extends Component {
     super(props)
 
     this.state = {
-      markers: [
-        { coordinates: { latitude: 49.833984, longitude: 73.181563 }, title: 'Hello 1', desc: 'Hello world!' },
-        { coordinates: { latitude: 49.833904, longitude: 73.181463 }, title: 'Hello 2', desc: 'Hello world!' },
-        { coordinates: { latitude: 49.833884, longitude: 73.181363 }, title: 'Hello 3', desc: 'Hello world!' },
-        { coordinates: { latitude: 49.833784, longitude: 73.181263 }, title: 'Hello 4', desc: 'Hello world!' },
-        { coordinates: { latitude: 49.833684, longitude: 73.181163 }, title: 'Hello 5', desc: 'Hello world!' }
-      ]
+      markers
     }
   }
 
@@ -63,16 +69,25 @@ export default class StartScreen extends Component {
           }}
           showsUserLocation
         >
-          { this.state.markers.map((marker, index) => (
+          { this.state.markers && this.state.markers.map(({id, title, coordinates}) => (
             <Marker
-              key={index}
-              coordinate={marker.coordinates}
-              title={marker.title}
-              description={marker.description}
+              key={id}
+              title={title}
+              coordinate={coordinates}
             />
           )) }
         </MapView>
-        <DevscreensButton />
+        <View style={styles.overlay} >
+          { this.state.markers.map(({id, cover, title, category, addr}) => (
+            <Card
+              key={id}
+              cover={cover}
+              title={title}
+              category={category}
+              address={addr}
+            />
+            )) }
+        </View>
       </Layout>
     )
   }

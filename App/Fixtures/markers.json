@@ -1,0 +1,59 @@
+[
+  {
+    "id": 1,
+    "coordinates": {
+      "latitude": 49.833984,
+      "longitude": 73.181563
+    },
+    "cover": {
+      "uri": "https://www.serena.vc/wp-content/themes/serena/lib/slick.js/img/fonz1.png"
+    },
+    "title": "Hello 1",
+    "category": "Hello world!",
+    "addr": "asd 1"
+  },
+  {
+    "id": 2,
+    "coordinates": {
+      "latitude": 49.833904,
+      "longitude": 73.181463
+    },
+    "cover": null,
+    "title": "Hello 2",
+    "category": null,
+    "addr": "asd 2"
+  },
+  {
+    "id": 3,
+    "coordinates": {
+      "latitude": 49.833884,
+      "longitude": 73.181363
+    },
+    "cover": null,
+    "title": "Hello 3",
+    "category": "Hello world!",
+    "addr": "asd3"
+  },
+  {
+    "id": 4,
+    "coordinates": {
+      "latitude": 49.833784,
+      "longitude": 73.181263
+    },
+    "cover": null,
+    "title": "Hello 4",
+    "category": "Hello world!",
+    "addr": null
+  },
+  {
+    "id": 5,
+    "coordinates": {
+      "latitude": 49.833684,
+      "longitude": 73.181163
+    },
+    "cover": null,
+    "title": "Hello 5",
+    "category": "Hello world!",
+    "addr": "asd5"
+  }
+]
