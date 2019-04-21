@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import { View, Text, Alert, StyleSheet, Dimensions } from 'react-native'
+import { View, Alert, StyleSheet, Dimensions } from 'react-native'
 import MapView, { Marker } from 'react-native-maps'
-import Icon from 'react-native-vector-icons/FontAwesome5'
 
 import Layout from '../Components/Layout'
+import Header from '../Components/Header'
 import Card from '../Components/Card'
 
 import markers from '../Fixtures/markers'
@@ -11,19 +11,6 @@ import markers from '../Fixtures/markers'
 const { width: fullWidth, height: fullHeight } = Dimensions.get('window')
 
 const styles = StyleSheet.create({
-  headerWrapper: {
-    padding: 16,
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#fff'
-  },
-  headerText: {
-    fontSize: 18,
-    fontWeight: '600',
-    color: '#2B385A',
-    flex: 1
-  },
   map: {
     display: 'flex',
     height: fullHeight,
@@ -38,16 +25,6 @@ const styles = StyleSheet.create({
     padding: 16,
     display: 'flex',
     flexDirection: 'row'
-  },
-  sidebar: {
-    position: 'absolute',
-    height: fullHeight,
-    width: fullWidth - 100,
-    backgroundColor: '#f26',
-    color: '#fff',
-    opacity: 0.5,
-    right: fullWidth,
-    padding: 32
   }
 })
 
@@ -87,15 +64,13 @@ export default class StartScreen extends Component {
 
     return (
       <Layout>
-        <View style={styles.headerWrapper}>
-          <Text style={styles.headerText}>Сегодня в Караганде</Text>
-          <Icon.Button
-            name='cog'
-            color='#212121'
-            backgroundColor='transparent'
-            onPress={() => Alert.alert('You pressed cog')}
-          />
-        </View>
+        <Header
+          title='Сегодня в Караганде'
+          icon={{
+            type: 'cog',
+            onPress: () => Alert.alert('You pressed button')
+          }}
+        />
         <MapView
           style={styles.map}
           region={{
@@ -124,9 +99,6 @@ export default class StartScreen extends Component {
               address={addr}
             />
             )) }
-        </View>
-        <View style={styles.sidebar}>
-          <Text>User</Text>
         </View>
       </Layout>
     )
