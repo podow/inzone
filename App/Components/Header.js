@@ -3,22 +3,24 @@ import { View, Text, StyleSheet } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome5'
 import PropTypes from 'prop-types'
 
+import { inzoneColors } from '../Themes/Colors'
+
 const styles = StyleSheet.create({
   headerWrapper: {
     padding: 16,
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#fff'
+    backgroundColor: inzoneColors.light
   },
   headerText: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#2B385A',
+    color: inzoneColors.title,
     flex: 1
   },
   headerButton: {
-    color: '#212121',
+    color: inzoneColors.text,
     marginRight: 0
   }
 })

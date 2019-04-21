@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { View, Alert, StyleSheet, Dimensions } from 'react-native'
 import MapView, { Marker } from 'react-native-maps'
 
+import { inzoneColors } from '../Themes/Colors'
+
 import Layout from '../Components/Layout'
 import Header from '../Components/Header'
 import Card from '../Components/Card'
@@ -21,7 +23,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 300,
     bottom: 0,
-    backgroundColor: '#fff',
+    backgroundColor: inzoneColors.light,
     padding: 16,
     display: 'flex',
     flexDirection: 'row'
@@ -60,6 +62,7 @@ export default class StartScreen extends Component {
   }
 
   render (): React.ReactNode {
+    const { navigation } = this.props
     const { userPosition } = this.state
 
     return (
@@ -68,7 +71,7 @@ export default class StartScreen extends Component {
           title='Сегодня в Караганде'
           icon={{
             type: 'cog',
-            onPress: () => Alert.alert('You pressed button')
+            onPress: () => navigation.openDrawer()
           }}
         />
         <MapView

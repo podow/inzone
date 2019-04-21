@@ -24,4 +24,13 @@ const colors = {
   text: '#E0D7E5'
 }
 
+export const inzoneColors = {
+  main: '#FE2042',
+  light: '#FFFFFF',
+  dark: '#000000',
+  title: '#2B385A',
+  text: '#212121',
+  transparent: 'rgba(0,0,0,0)'
+}
+
 export default colors
