@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet, Alert } from 'react-native'
+import { View, Text, Alert, StyleSheet, Dimensions } from 'react-native'
 import MapView, { Marker } from 'react-native-maps'
 import Icon from 'react-native-vector-icons/FontAwesome5'
 
@@ -8,12 +8,15 @@ import Card from '../Components/Card'
 
 import markers from '../Fixtures/markers'
 
+const { width: fullWidth, height: fullHeight } = Dimensions.get('window')
+
 const styles = StyleSheet.create({
   headerWrapper: {
     padding: 16,
     display: 'flex',
     flexDirection: 'row',
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor: '#fff'
   },
   headerText: {
     fontSize: 18,
@@ -23,8 +26,8 @@ const styles = StyleSheet.create({
   },
   map: {
     display: 'flex',
-    height: '100%',
-    width: '100%'
+    height: fullHeight,
+    width: fullWidth
   },
   overlay: {
     position: 'absolute',
@@ -35,6 +38,16 @@ const styles = StyleSheet.create({
     padding: 16,
     display: 'flex',
     flexDirection: 'row'
+  },
+  sidebar: {
+    position: 'absolute',
+    height: fullHeight,
+    width: fullWidth - 100,
+    backgroundColor: '#f26',
+    color: '#fff',
+    opacity: 0.5,
+    right: fullWidth,
+    padding: 32
   }
 })
 
@@ -43,11 +56,35 @@ export default class StartScreen extends Component {
     super(props)
 
     this.state = {
-      markers
+      markers,
+      userPosition: {
+        coords: {
+          accuracy: 5,
+          altitude: 0,
+          altitudeAccuracy: -1,
+          heading: -1,
+          latitude: 49.833984,
+          longitude: 73.181563,
+          speed: -1
+        },
+        timestamp: 1555821526272.3499
+      }
     }
   }
 
+  componentWillMount (): void {
+    navigator.geolocation.getCurrentPosition(
+      async position => {
+        await this.setState({ userPosition: position })
+      },
+      error => Alert.alert(error.message),
+      { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
+    )
+  }
+
   render (): React.ReactNode {
+    const { userPosition } = this.state
+
     return (
       <Layout>
         <View style={styles.headerWrapper}>
@@ -62,8 +99,8 @@ export default class StartScreen extends Component {
         <MapView
           style={styles.map}
           region={{
-            latitude: 49.833984,
-            longitude: 73.181563,
+            latitude: userPosition.coords.latitude,
+            longitude: userPosition.coords.longitude,
             latitudeDelta: 0.0922,
             longitudeDelta: 0.0421
           }}
@@ -87,6 +124,9 @@ export default class StartScreen extends Component {
               address={addr}
             />
             )) }
+        </View>
+        <View style={styles.sidebar}>
+          <Text>User</Text>
         </View>
       </Layout>
     )
