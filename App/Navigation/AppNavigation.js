@@ -1,13 +1,22 @@
 import { inzoneColors } from '../Themes/Colors'
 
-import { createDrawerNavigator, createAppContainer } from 'react-navigation'
+import {
+  createStackNavigator,
+  createDrawerNavigator,
+  createAppContainer
+} from 'react-navigation'
 
 import Drawer from '../Components/Drawer'
 
 import StartScreen from '../Containers/StartScreen'
 import TestScreen from '../Containers/TestScreen'
+import SameTestScreen from '../Containers/SameTestScreen'
 
-// Manifest of possible screens
+const SettingsNav = createStackNavigator({
+  TestScreen: { screen: TestScreen },
+  SameTestScreen: { screen: SameTestScreen }
+})
+
 const PrimaryNav = createDrawerNavigator({
   StartScreen: {
     screen: StartScreen,
@@ -15,12 +24,7 @@ const PrimaryNav = createDrawerNavigator({
       drawerLabel: 'Map'
     }
   },
-  TestScreen: {
-    screen: TestScreen,
-    navigationOptions: {
-      drawerLabel: 'Test'
-    }
-  }
+  Test: { screen: SettingsNav }
 }, {
   // Settings of drawer navigation
   initialRouteName: 'StartScreen',
