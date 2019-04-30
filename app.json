@@ -1,4 +1,10 @@
 {
+  "slug": "inzone",
   "name": "inzoneApp",
-  "displayName": "inzoneApp"
+  "displayName": "inzoneApp",
+  "description": "Find places where to go in your city!",
+  "version": "0.0.1",
+  "orientation": "portrait",
+  "platforms": ["ios", "android"],
+  "primaryColor": "#f6bd94"
 }
