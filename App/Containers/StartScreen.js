@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { View, Alert, StyleSheet, Dimensions } from 'react-native'
-import MapView, { Marker } from 'react-native-maps'
+import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps'
 
 import { inzoneColors } from '../Themes/Colors'
 
@@ -35,7 +35,6 @@ export default class StartScreen extends Component {
     super(props)
 
     this.state = {
-      markers,
       userPosition: {
         coords: {
           accuracy: 5,
@@ -47,7 +46,8 @@ export default class StartScreen extends Component {
           speed: -1
         },
         timestamp: 1555821526272.3499
-      }
+      },
+      markers
     }
   }
 
@@ -75,6 +75,7 @@ export default class StartScreen extends Component {
           }}
         />
         <MapView
+          provider={PROVIDER_GOOGLE}
           style={styles.map}
           region={{
             latitude: userPosition.coords.latitude,
