@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Alert, StyleSheet, Dimensions } from 'react-native'
+import { View, Alert, StyleSheet } from 'react-native'
 import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps'
 
 import { inzoneColors } from '../Themes/Colors'
@@ -10,18 +10,13 @@ import Card from '../Components/Card'
 
 import markers from '../Fixtures/markers'
 
-const { width: fullWidth, height: fullHeight } = Dimensions.get('window')
-
 const styles = StyleSheet.create({
   map: {
-    display: 'flex',
-    height: fullHeight,
-    width: fullWidth
+    flex: 1
   },
   overlay: {
     position: 'absolute',
-    width: '100%',
-    height: 300,
+    height: 250,
     bottom: 0,
     backgroundColor: inzoneColors.light,
     padding: 16,

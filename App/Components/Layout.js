@@ -11,7 +11,7 @@ export default class Layout extends Component {
   render (): React.ReactNode {
     const { children, barStyle } = this.props
     return (
-      <SafeAreaView>
+      <SafeAreaView style={{ flex: 1 }}>
         <StatusBar barStyle={barStyle || 'default'} />
         { children }
       </SafeAreaView>
