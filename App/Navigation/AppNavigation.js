@@ -29,6 +29,7 @@ const PrimaryNav = createDrawerNavigator({
   // Settings of drawer navigation
   initialRouteName: 'StartScreen',
   drawerPosition: 'right',
+  drawerType: 'back',
   contentComponent: Drawer,
   contentOptions: {
     activeTintColor: inzoneColors.main

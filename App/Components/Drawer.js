@@ -1,6 +1,15 @@
 import React from 'react'
-import { View, Text, Image, ScrollView, StyleSheet } from 'react-native'
-import { DrawerItems, SafeAreaView } from 'react-navigation'
+import {
+  View,
+  Text,
+  Image,
+  ScrollView,
+  StyleSheet
+} from 'react-native'
+import {
+  DrawerItems,
+  SafeAreaView
+} from 'react-navigation'
 
 const styles = StyleSheet.create({
   drawerHeader: {

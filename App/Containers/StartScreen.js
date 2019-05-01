@@ -1,6 +1,13 @@
 import React, { Component } from 'react'
-import { View, Alert, StyleSheet } from 'react-native'
-import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps'
+import {
+  Alert,
+  StyleSheet,
+  ScrollView
+} from 'react-native'
+import MapView, {
+  PROVIDER_GOOGLE,
+  Marker
+} from 'react-native-maps'
 
 import { inzoneColors } from '../Themes/Colors'
 
@@ -88,7 +95,7 @@ export default class StartScreen extends Component {
             />
           )) }
         </MapView>
-        <View style={styles.overlay} >
+        <ScrollView style={styles.overlay} horizontal>
           { this.state.markers.map(({id, cover, title, category, addr}) => (
             <Card
               key={id}
@@ -98,7 +105,7 @@ export default class StartScreen extends Component {
               address={addr}
             />
             )) }
-        </View>
+        </ScrollView>
       </Layout>
     )
   }
