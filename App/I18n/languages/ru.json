@@ -1,1 +1,26 @@
-{}
+{
+  "signIn": "Зарегистрироваться",
+  "logOut": "Выйти",
+  "loginLogoutExampleTitle": "Login/Logout Redux + Sagas Example",
+  "progressiveImageComponent": "Progressive Image Component",
+  "api": "API",
+  "locale": "I18n Локаль",
+  "rnVectorIcons": "RN Иконки",
+  "loginWithFacebook": "Войти с помощью Facebook",
+  "rni18n": "RN i18n",
+  "igniteGenerated": "Ignite Generate Screens",
+  "forgotPassword": "Забыли пароль",
+  "username": "Имя пользователя",
+  "password": "Пароль",
+  "cancel": "Отмена",
+  "welcome": "Добро пожаловать",
+  "login": "Войти",
+  "tempIndicator": "F",
+  "componentExamples": "Component Examples",
+  "usageExamples": "Usage Examples",
+  "apiTesting": "API Testing",
+  "themeSettings": "Theme Settings",
+  "deviceDetails": "Device Details",
+  "noItems": "No Items",
+  "search": "Поиск"
+}

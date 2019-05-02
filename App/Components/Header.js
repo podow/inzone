@@ -1,6 +1,11 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet } from 'react-native'
-import Icon from 'react-native-vector-icons/FontAwesome5'
+import {
+  Image,
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity
+} from 'react-native'
 import PropTypes from 'prop-types'
 
 import { inzoneColors } from '../Themes/Colors'
@@ -29,7 +34,7 @@ export default class Header extends Component {
   static propTypes = {
     title: PropTypes.string.isRequired,
     icon: PropTypes.shape({
-      type: PropTypes.string,
+      type: PropTypes.any,
       onPress: PropTypes.func
     })
   }
@@ -41,12 +46,9 @@ export default class Header extends Component {
       <View style={styles.headerWrapper}>
         <Text style={styles.headerText}>{title}</Text>
         { icon &&
-          <Icon.Button
-            name={icon.type}
-            backgroundColor='transparent'
-            onPress={icon.onPress}
-            iconStyle={styles.headerButton}
-          />
+          <TouchableOpacity onPress={icon.onPress}>
+            <Image source={icon.type} />
+          </TouchableOpacity>
         }
       </View>
     )

@@ -10,6 +10,7 @@ import {
   DrawerItems,
   SafeAreaView
 } from 'react-navigation'
+import { images } from '../Themes/Images'
 
 const styles = StyleSheet.create({
   drawerHeader: {
@@ -29,7 +30,7 @@ const Drawer = props => (
   <SafeAreaView>
     <ScrollView>
       <View style={styles.drawerHeader}>
-        <Image width='100%' source={require('../Images/inzone.png')} />
+        <Image width='100%' source={images.logo} />
       </View>
       <DrawerItems {...props} />
       <View style={styles.drawerFooter}>

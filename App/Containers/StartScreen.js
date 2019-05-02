@@ -10,12 +10,14 @@ import MapView, {
 } from 'react-native-maps'
 
 import { inzoneColors } from '../Themes/Colors'
+import { icons } from '../Themes/Images'
 
 import Layout from '../Components/Layout'
 import Header from '../Components/Header'
 import Card from '../Components/Card'
 
 import markers from '../Fixtures/markers'
+import I18n from 'react-native-i18n'
 
 const styles = StyleSheet.create({
   map: {
@@ -70,9 +72,9 @@ export default class StartScreen extends Component {
     return (
       <Layout>
         <Header
-          title='Сегодня в Караганде'
+          title={`Сегодня в Караганде ${I18n.locale}`}
           icon={{
-            type: 'cog',
+            type: icons.equalizer,
             onPress: () => navigation.openDrawer()
           }}
         />
@@ -95,7 +97,10 @@ export default class StartScreen extends Component {
             />
           )) }
         </MapView>
-        <ScrollView style={styles.overlay} horizontal>
+        <ScrollView
+          style={styles.overlay}
+          showsHorizontalScrollIndicator={false}
+          horizontal>
           { this.state.markers.map(({id, cover, title, category, addr}) => (
             <Card
               key={id}
