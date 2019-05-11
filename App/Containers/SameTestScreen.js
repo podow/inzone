@@ -2,22 +2,19 @@ import React, { Component } from 'react'
 import { Text } from 'react-native'
 
 import Layout from '../Components/Layout'
-import Header from '../Components/Header'
+import SwipeUpDown from '../Components/SwipeUpDown'
+import PlacesListSmall from '../Components/PlacesListSmall'
+
+import markers from '../Fixtures/markers'
 
 export default class SameTestScreen extends Component {
   render (): React.ReactNode {
-    const { navigation } = this.props
-
     return (
       <Layout>
-        <Header
-          title='Test'
-          icon={{
-            type: 'cog',
-            onPress: () => navigation.openDrawer()
-          }}
+        <SwipeUpDown
+          itemMini={<PlacesListSmall items={markers} />}
+          itemFull={<Text>Full</Text>}
         />
-        <Text>Same Test!!!</Text>
       </Layout>
     )
   }

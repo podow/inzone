@@ -1,38 +1,18 @@
 import React, { Component } from 'react'
-import {
-  Alert,
-  StyleSheet,
-  ScrollView
-} from 'react-native'
+import { Alert } from 'react-native'
 import MapView, {
   PROVIDER_GOOGLE,
   Marker
 } from 'react-native-maps'
 
-import { inzoneColors } from '../Themes/Colors'
 import { icons } from '../Themes/Images'
 
 import Layout from '../Components/Layout'
 import Header from '../Components/Header'
-import Card from '../Components/Card'
+import PlacesListSmall from '../Components/PlacesListSmall'
 
 import markers from '../Fixtures/markers'
 import I18n from 'react-native-i18n'
-
-const styles = StyleSheet.create({
-  map: {
-    flex: 1
-  },
-  overlay: {
-    position: 'absolute',
-    height: 250,
-    bottom: 0,
-    backgroundColor: inzoneColors.light,
-    padding: 16,
-    display: 'flex',
-    flexDirection: 'row'
-  }
-})
 
 export default class StartScreen extends Component {
   constructor (props) {
@@ -80,7 +60,7 @@ export default class StartScreen extends Component {
         />
         <MapView
           provider={PROVIDER_GOOGLE}
-          style={styles.map}
+          style={{ flex: 1 }}
           region={{
             latitude: userPosition.coords.latitude,
             longitude: userPosition.coords.longitude,
@@ -97,20 +77,9 @@ export default class StartScreen extends Component {
             />
           )) }
         </MapView>
-        <ScrollView
-          style={styles.overlay}
-          showsHorizontalScrollIndicator={false}
-          horizontal>
-          { this.state.markers.map(({id, cover, title, category, addr}) => (
-            <Card
-              key={id}
-              cover={cover}
-              title={title}
-              category={category}
-              address={addr}
-            />
-            )) }
-        </ScrollView>
+        <PlacesListSmall
+          items={this.state.markers}
+        />
       </Layout>
     )
   }
