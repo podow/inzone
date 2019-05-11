@@ -1,15 +1,19 @@
 #  inzoneApp
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](http://standardjs.com/)
 
-* Standard compliant React Native App Utilizing [Ignite](https://github.com/infinitered/ignite)
-
 ## :arrow_up: How to Setup
 
-**Step 1:** git clone this repo:
+**Step 1:** git clone this repo
 
-**Step 2:** cd to the cloned repo:
+**Step 2:** cd to the cloned repo
 
 **Step 3:** Install the Application with `yarn` or `npm i`
+
+**Step 4:** cd to ios folder in project `cd ios`
+
+**Step 5:** install cocoapods `sudo gem install cocoapods`
+
+**Step 6:** install project's pods `pod install`
 
 
 ## :arrow_forward: How to Run App
